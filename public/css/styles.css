@@ -1,0 +1,537 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    background-image: url('../images/header-background.jpg'); /* Ajusta la ruta a tu imagen */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed; /* Esto asegura que el fondo no se mueva con el scroll */
+}
+
+
+/* Estilo del header */
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+}
+
+header .logo {
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+.logo img{
+    max-width: 100px;
+    margin-top: 20px;
+    margin-left: 20px;
+}
+
+/* Estilo del menú hamburguesa */
+#burger-menu {
+    display: block; /* Visible en pantallas pequeñas */
+    cursor: pointer;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    z-index: 1001; /* Asegúrate de que esté por encima del menú */
+}
+
+#burger-menu div {
+    width: 30px;
+    height: 3px;
+    background-color: #fff;
+    margin: 6px 0;
+    transition: all 0.3s;
+}
+
+/* Mantén visible el burger menu cuando el menú está desplegado */
+#burger-menu.active div {
+    background-color: #fff;
+}
+
+/* Estilo opcional para cuando el menú está activo */
+#burger-menu.active div:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+#burger-menu.active div:nth-child(2) {
+    opacity: 0;
+}
+
+#burger-menu.active div:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.intro-text-index{
+    margin-top: 200px;
+}
+
+/* Estilo del nav */
+header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+header nav ul {
+    display: flex;
+    list-style: none;
+    margin-left: 100px;
+}
+
+header nav ul li {
+    margin: 0 10px;
+}
+
+header nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+header nav ul li a:hover {
+    color: #ddd;
+}
+
+/* Estilo de la barra de registro y login */
+#user-forms {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#user-forms form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+#user-forms input {
+    margin: 0 5px;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 120px;
+}
+
+#user-forms button {
+    padding: 5px 10px;
+    background-color: #555;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    width: 100px;
+}
+
+#user-forms button:hover {
+    background-color: #444;
+}
+
+#user-forms p {
+    margin: 10px 0;
+    color: #fff;
+}
+
+#user-forms p a {
+    color: #ddd;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#user-forms p a:hover {
+    color: #fff;
+}
+
+/* Asegurar que el main ocupe el espacio disponible */
+main {
+    flex: 1;
+    padding: 20px;
+    text-align: center;
+}
+
+/*************************************************************/
+/* Estilos para el estado "no login" */
+.no-login {
+    max-width: 830px; /* Ancho uniforme para todos los contenedores */
+    margin: 0 auto; /* Centrarlos horizontalmente */
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.login-warning {
+    min-height: 300px; /* Ajusta la altura mínima del contenedor cuando muestra la advertencia */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.login-message {
+    color: red;
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+
+/*************************************************************/
+/* Estilos del calendario */
+/* Estilo base */
+#calendar-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.fc-header-toolbar {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.fc-button-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s ease;
+}
+
+.fc-button-primary:hover {
+    background-color: #0056b3;
+}
+
+.fc-daygrid-day {
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    cursor: pointer;
+}
+
+.fc-daygrid-day:hover {
+    background-color: #e9ecef;
+    transform: scale(1.02);
+}
+
+/* Cambiar el color del texto de los domingos */
+.fc-day-sun {
+    color: red;
+}
+
+/* Estilo para los eventos */
+.fc-event {
+    background-color: #28a745;
+    border-color: #28a745;
+    color: white;
+    transition: transform 0.3s ease;
+}
+
+.fc-event:hover {
+    transform: scale(1.05);
+}
+
+/* Estilo para los días festivos */
+.fc-holiday {
+    background-color: #ffc107 !important;
+    color: #fff !important;
+}
+
+/*************************************************************/
+/* Estilo específico para la página del diario */
+#diario-container {
+    max-width: 830px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+#diary-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#diary-date {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 100%;
+    max-width: 200px;
+}
+
+#diary-content {
+    width: 100%;
+    max-width: 830px;
+    height: 300px;
+    padding: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    resize: none;
+    box-sizing: border-box;
+}
+
+#diario-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#diario-container button:hover {
+    background-color: #0056b3;
+}
+
+/* Estilo responsivo para la entrada de diario */
+@media (max-width: 768px) {
+    #diary-content {
+        width: 100%;
+        height: 200px;
+    }
+}
+
+/*************************************************************/
+/* Estilo específico para objetivos.html */
+#objetivo-form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+#objetivos-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+#objetivos-table th, #objetivos-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: center;
+}
+
+#objetivos-table th {
+    background-color: #007bff;
+    color: white;
+}
+
+#objetivos-table tr.selected {
+    background-color: #007bff;
+    color: white;
+}
+
+#objetivo-form input, #objetivo-form button {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: calc(100% - 24px);
+}
+
+#objetivo-form button {
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#objetivo-form button:hover {
+    background-color: #0056b3;
+}
+
+#objetivos-container button {
+    padding: 10px 20px;
+    margin: 10px 0;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#objetivos-container button:hover {
+    background-color: #0056b3;
+}
+
+#objetivos-container button[disabled] {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+
+
+/*************************************************************/
+/* Estilo específico para la página de hábitos */
+#habitos-container {
+    max-width: 830px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+}
+
+.habit-table-wrapper {
+    overflow-x: auto; /* Si la tabla es más grande que el contenedor, permitir desplazamiento horizontal */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px solid #ccc;
+}
+
+table th {
+    background-color: #007bff;
+    color: #fff;
+}
+
+table td {
+    background-color: #f7f7f7;
+}
+
+
+#habitos-container button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin: 10px;
+    transition: background-color 0.3s ease;
+}
+
+#habitos-container button:hover {
+    background-color: #0056b3;
+}
+    */
+
+/* Estilos del footer */
+footer {
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    width: 100%;
+    margin-top: auto;
+    flex-shrink: 0;
+    position: relative;
+}
+
+footer ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    font-weight: bold;
+
+}
+
+footer ul li {
+    margin: 0 10px;
+    margin-bottom: 20px;
+}
+
+footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    text-decoration: underline;
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    header {
+        min-height: 150px; /* Altura mínima para mantener el espacio ocupado por el formulario */
+    }
+
+    #user-forms form {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #user-forms input,
+    #user-forms button {
+        margin: 5px 0;
+        width: 100%;
+    }
+
+    header nav ul {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 100%;
+        padding: 10px 0;
+        z-index: 1000;
+    }
+
+    header nav ul.show {
+        display: flex;
+    }
+
+    header nav ul li {
+        margin: 15px 0;
+        text-align: right;
+        padding-right: 20px;
+    }
+
+    header nav ul li a {
+        font-size: 18px;
+    }
+
+    #burger-menu {
+        display: block;
+    }
+}
+
+@media (min-width: 769px) {
+    #burger-menu {
+        display: none; /* Eliminar el burger menu en pantallas más grandes */
+    }
+}

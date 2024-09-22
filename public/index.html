@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Diary Web</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo"><a href="index.html"><img src="images/logo.png" alt="logo"></a></div>
+        <nav>
+            <div id="burger-menu">
+                <div></div>
+                <div></div>
+                <div></div>
+            </div>
+            <ul>
+                <li><a href="index.html">Inicio</a></li>
+                <li><a href="calendario.html">Calendario</a></li>
+                <li><a href="diario.html">Diario</a></li>
+                <li><a href="habitos.html">Hábitos</a></li>
+                <li><a href="objetivos.html">Objetivos</a></li>
+            </ul>
+        </nav>
+        <div id="user-forms">
+            <form id="register-form">
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Registrar</button>
+            </form>
+            <p id="toggle-login">¿Ya estás registrado? <a href="#">Haz login</a></p>
+
+            <form id="login-form" style="display:none;">
+                <input type="email" name="email" placeholder="Email" required>
+                <input type="password" name="password" placeholder="Contraseña" required>
+                <button type="submit">Login</button>
+            </form>
+            <p id="toggle-register" style="display:none;">¿No tienes cuenta? <a href="#">Regístrate aquí</a></p>
+        </div>
+    </header>
+
+
+    <main>
+        <div class="intro-text-index">
+            <h1>Bienvenido a My Diary Web</h1>
+            <p>Organiza tu vida de manera efectiva.</p>
+        </div>
+    </main>
+
+    <footer>
+        <ul>
+            <li><a href="privacidad.html">Política de Privacidad</a></li>
+            <li><a href="cookies.html">Política de Cookies</a></li>
+            <li><a href="contacto.html">Contacto</a></li>
+        </ul>
+        <p>&copy; 2024, My Diary Web. Todos los Derechos Reservados. Web by KNB Dev</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
